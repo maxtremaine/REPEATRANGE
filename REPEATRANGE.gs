@@ -13,11 +13,11 @@ function REPEATRANGE(range, repeats, hasHeader, sort) {
   var output = [];
   
   if(typeof range !== "object") {
-    throw new Error("A range was not provided.");
+    throw "A range was not provided.";
   }
   
   if(typeof repeats === "undefined") {
-    throw new Error("A number of repeats was not provided.");
+    throw "A number of repeats was not provided.";
   }
   
   if(hasHeader) {
