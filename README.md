@@ -1,5 +1,5 @@
 # REPEATRANGE
-Google Sheets function to repeat a range.
+Google Sheets custom function to repeat a range.
 
 ## Usage
 
