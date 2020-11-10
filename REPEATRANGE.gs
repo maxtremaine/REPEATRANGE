@@ -1,24 +1,28 @@
 /**
- * Repeats a range multiple times in the same column.
+ * Repeats a range vertically.
  *
- * @param {object} range The range to repeat.
- * @param {number} repeats The number of times to repeat.
- * @param {boolean} hasHeader Does the range have a header?
- * @param {boolean} sort Do you want to sort the output?
+ * @param {Array<any>} range The range to repeat.
+ * @param {number} repeats The number of times to repeat. Must be an integer.
+ * @param {boolean} hasHeader Does the range have a header? Default is false.
+ * @param {boolean} sort Do you want to sort the output? Default is false.
  * @returns The repeated range.
  * @customfunction
  */
 
-function REPEATRANGE(range, repeats, hasHeader, sort) {
+function REPEATRANGE(range, repeats, hasHeader = false, sort = false) {
+  // Check types.
+  
+  if(!Array.isArray(range)) range = Array.of(range);
+  
+  if(!Number.isInteger(repeats)) throw "'repeats' must be an integer.";
+  
+  if(typeof hasHeader !== "boolean") throw "'hasHeader' must be a boolean.";
+  
+  if(typeof sort !== "boolean") throw "'sort' must be a boolean.";
+  
+  // End of types.
+  
   var output = [];
-  
-  if(typeof range !== "object") {
-    throw "A range was not provided.";
-  }
-  
-  if(typeof repeats === "undefined") {
-    throw "A number of repeats was not provided.";
-  }
   
   if(hasHeader) {
     output.push(range.shift());
